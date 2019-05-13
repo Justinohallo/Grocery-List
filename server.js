@@ -1,7 +1,9 @@
 const express = require('express');
+const graphqlHTTP = require('express-graphql')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path')
+const schema = require('./schema')
 
 const items = require('./routes/api/items.js')
 
@@ -10,6 +12,15 @@ const app = express()
 // Body Parser Middleware
 
 app.use(bodyParser.json());
+
+// GRAPHQL 
+
+
+app.use('/graphql', graphqlHTTP({
+  schema,
+  rootValue: root,
+  graphiql: true,
+}));
 
 // DB Config 
 const db = require('./config/keys').mongoURI
