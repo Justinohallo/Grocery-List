@@ -1,4 +1,4 @@
-import uuid from 'uuid'
+
 import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING} from "../actions/types"
 const initialState = {
     
@@ -36,10 +36,6 @@ export default function(state=initialState, action){
         };
         default: 
         return state; 
-
-        
-
-
     }
 
 }
